@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+ body {
+        background-color: #7F77DD;
+        font-family: 'Playfair Display', serif;
+        }
+        h1,h2 {
+color: #26215C;
+        }
+
+        p {
+            color: #1e0a30;
+        }

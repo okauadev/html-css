@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consume — Chase Atlantic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #060609;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .wrap {
+      padding: 2rem 1rem;
+      max-width: 560px;
+      width: 100%;
+    }
+
+    .card {
+      background: #0a0a0f;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 0.5px solid #2a1a3e;
+      position: relative;
+    }
+
+    /* Arte de fundo */
+    .bg-art {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .top-bar {
+      padding: 1.25rem 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .d1 { background: #8b5cf6; }
+    .d2 { background: #6d28d9; opacity: .6; }
+    .d3 { background: #4c1d95; opacity: .4; }
+
+    .video-wrap {
+      position: relative;
+      margin: 1rem 1.5rem 0;
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .video-wrap iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+    }
+
+    .info {
+      padding: 1.25rem 1.5rem 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .label {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: #4c1d95;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      color: #e8e0f0;
+      line-height: 1.1;
+      font-style: italic;
+    }
+
+    .artist {
+      font-size: 10px;
+      color: #6d4a9e;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      color: #6d28d9;
+      border: 0.5px solid #2a1040;
+      border-radius: 4px;
+      padding: 3px 8px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .bottom-bar {
+      padding: 0.75rem 1.5rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .yt-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      color: #4c1d95;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .yt-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: #6d28d9;
+    }
+
+    .open-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: #a855f7;
+      border: 0.5px solid #6d28d9;
+      background: transparent;
+      border-radius: 4px;
+      padding: 5px 12px;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .open-btn:hover {
+      background: #6d28d9;
+      color: #e8e0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="card">
+
+      <!-- Arte de fundo: faca + coração em SVG -->
+      <div class="bg-art">
+        <svg width="100%" height="100%" viewBox="0 0 560 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- Coração grande -->
+          <path d="M420 180 C420 155 400 130 375 130 C355 130 340 145 335 160 C330 145 315 130 295 130 C270 130 250 155 250 180 C250 220 295 255 335 290 C375 255 420 220 420 180Z"
+            fill="none" stroke="#2a1040" stroke-width="1.5" opacity="0.5"/>
+          <!-- Faca -->
+          <g opacity="0.4" transform="translate(60, 80) rotate(-30)">
+            <path d="M10 180 L18 20 L26 180 Z" fill="none" stroke="#3b1a5c" stroke-width="1"/>
+            <line x1="18" y1="20" x2="26" y2="180" stroke="#5b2d8e" stroke-width="0.8"/>
+            <rect x="4" y="178" width="28" height="6" rx="2" fill="none" stroke="#3b1a5c" stroke-width="1"/>
+            <rect x="10" y="184" width="16" height="45" rx="3" fill="none" stroke="#3b1a5c" stroke-width="1"/>
+          </g>
+          <!-- Coração pequeno pontilhado -->
+          <path d="M480 320 C480 308 470 296 458 296 C449 296 442 303 440 310 C438 303 431 296 422 296 C410 296 400 308 400 320 C400 338 422 352 440 366 C458 352 480 338 480 320Z"
+            fill="none" stroke="#2a1040" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <!-- Gotinhas -->
+          <circle cx="338" cy="298" r="2" fill="#3b0a3b" opacity="0.5"/>
+          <circle cx="332" cy="310" r="1.5" fill="#3b0a3b" opacity="0.4"/>
+          <circle cx="342" cy="315" r="1" fill="#3b0a3b" opacity="0.3"/>
+          <!-- Linha diagonal -->
+          <line x1="0" y1="500" x2="560" y2="0" stroke="#1e0a30" stroke-width="0.5" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <div class="top-bar">
+        <div class="dot d1"></div>
+        <div class="dot d2"></div>
+        <div class="dot d3"></div>
+      </div>
+
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/watch?v=oCdXuomafSU"
+          title="Consume — Chase Atlantic"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="info">
+        <div class="label">minha música favorita</div>
+        <div class="title">Consume</div>
+        <div class="artist">Chase Atlantic</div>
+        <span class="tag">dark pop · r&amp;b</span>
+      </div>
+
+      <div class="bottom-bar">
+        <div class="yt-badge">
+          <svg viewBox="0 0 24 24">
+            <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.2 5 12 5 12 5s-4.2 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.2.8C6.8 19 12 19 12 19s4.2 0 7-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM10 15V9l5.5 3L10 15z"/>
+          </svg>
+          via youtube
+        </div>
+        <a class="open-btn" href="https://www.youtube.com/watch?v=oCdXuomafSU" target="_blank">abrir no youtube ↗</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
