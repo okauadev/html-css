@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario 2</title>
+    <style>
+        .botao {
+            border-radius: 7px;
+            background-color: blueviolet;
+            color: white;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+         border-color: purple;
+        box-shadow: 0 0 6px rgba(138, 43, 226, 0.5);
+}
+    </style>
+</head>
+<body>
+    <form action="cadastro.php" method="post">
+        <h1>Login</h1>
+        <p><label for="iusuario">Usuario: </label>
+            <input type="text" name="usuario" id="iusuario" required maxlength="15" placeholder="ex: pedrinmatador">
+        </p>
+        <p><label for="isenha">Senha: </label>
+            <input type="password" name="senha" id="isenha" required minlength="8" placeholder="ex: pedrin1432">
+        </p>
+        <input type="submit" value="Enviar" class="botao">
+    </form>
+</body>
+</html>
